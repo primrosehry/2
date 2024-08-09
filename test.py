@@ -21,14 +21,14 @@ print('sage_En:', Model)  # 输出模型的结构信息
 
 
 # 加载测试集并处理测试集数据
-path = './graphs/181.pt'
+path = './Graph_46/46.pt'
 # 读取.pt文件
 test_data = torch.load(path)
 new_test_data = utils.process_test_dataset(test_data)
 # print(new_test_data)
 
 # 加载模型
-model_path = f'weights/573_181.pt'
+model_path = f'Weights/646_46.pt'
 Model.load_state_dict(torch.load(model_path))
 Model.eval()
 
