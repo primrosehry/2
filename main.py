@@ -12,7 +12,7 @@ warnings.filterwarnings("ignore")
 
 
 # 加载数据，并划分训练和验证集
-path = './graphs/573.pt'
+path = './Graph_646/646.pt'
 data = torch.load(path)
 # print(data)   # Data(x=[73, 2560], edge_index=[2, 572], y=[1, 73])
 # 计算要选择的元素数量
@@ -36,14 +36,14 @@ Model = model.Sage_En(in_features, out_features, dropout, input_dim, hidden_dim1
 # out=sage_En(feature,adj)
 # print(out)
 
-crit = utils.FocalLoss(alpha=0.2, gamma=5)
+crit = utils.FocalLoss(alpha=0.25, gamma=2)
 # 传入优化器
 optimizer = torch.optim.Adam(Model.parameters(), lr=0.01)
 
 new_train_data = utils.process_train_dataset(train_data)
 
 enc = OneHotEncoder(sparse=False)
-for epoch in range(250):
+for epoch in range(50):
     loss_all = 0
     Model.train()
     for data in new_train_data:
@@ -64,7 +64,7 @@ for epoch in range(250):
 
     print('loss_all:',loss_all)
 
-torch.save(Model.state_dict(), './weights/573_181.pt')
+torch.save(Model.state_dict(), './    Weights/646_46.pt')
 
 Model.eval()
 
